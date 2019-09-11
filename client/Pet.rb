@@ -1,11 +1,13 @@
 class Pet
   
+  attr_accessor :idPet
   attr_accessor :name
   attr_accessor :birthDate
   attr_accessor :weight
-  attr_reader :type = {dog: "Dog", cat: "Cat", bird: "Bird", rodent: "Rodent"}
-  vaccines = new Vaccine[]
-  photos = new Photo[]
+  attr_reader :type = [dog: = "Dog",cat: "Cat" ,bird: "Bird",rodent: "Rodent", other: "other"]
+  attr_accessor :profilePhoto
+  attr_accessor :vaccines
+  attr_accessor :photos
 
   def initialize(name, birthDate, weight, type)
     @name = name
@@ -14,7 +16,7 @@ class Pet
     @type = type
   end
 
-  def setType(:type)
+  def setType(type)
     @type = :type
   end
 
