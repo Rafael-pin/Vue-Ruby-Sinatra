@@ -1,4 +1,6 @@
 class Pet
+
+  require 'date'
   
   attr_accessor :idPet
   attr_accessor :name
@@ -39,7 +41,7 @@ class Pet
   end
 
   def getAge
-    return Date.today - @birthDate
+    return (Date.today - @birthDate).to_i / 365 
   end
 
   def getLifeStage
@@ -50,12 +52,9 @@ class Pet
     end
     return "old"
   end
-end
 
-class Test
-
-  pet = Pet.new("Nome", 2000/3/4, 5, "dog", "petphoto.png", "photos", "vaccines")
+  pet = Pet.new("Nome", Date.new(2017,9,12), 5, "dog", "petphoto.png", "photos", "vaccines")
   
-  puts(pet.makeSound())
+  puts(" #{ pet.getAge() } years. Your #{ pet.type } is #{ pet.getLifeStage() } and makes #{ pet.makeSound() }")
 
 end
