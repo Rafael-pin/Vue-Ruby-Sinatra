@@ -14,7 +14,7 @@ class Pet
     @birth_date = birth_date
     @weight = weight
     @type = type
-    @profile_photo = profile_hoto
+    @profile_photo = profile_photo
     @photos = photos
     @vaccines = vaccines 
   end
@@ -33,26 +33,32 @@ class Pet
   end
 
   def get_age
-    return (Time.now.utc.to_date - @birth_date).years + made_birth_day
+    return (Time.now.utc.year - @birth_date.year) - made_birth_day
   end
 
   def get_life_stage
     if (get_age < 2)
       return "puppy"
+
     elsif (get_age < 8)
       return "adult"
+
     end
+
     return "old"
   end
 
   def made_birth_day
-    time = Time.now.utc.to_date
+    time = Time.now.utc
+
     if @birth_date.month >= time.month
-      return @birth_date.day >= time.day ? 1 : 0
-    end
+
+      return @birth_date.day >= time.day ? 0 : 1
+
+    end 
   end
-  pet = Pet.new("Nome", Time.new(2010, 9, 12).to_date, 5, "dog", "petphoto.png", "photos", "vaccines")
+  pet = Pet.new("Nome", Time.new(2010, 9, 12), 5, "cat", "petphoto.png", "photos", "vaccines")
   
-  puts(" #{ pet.get_age } years. Your #{ pet.type } is #{ pet.get_life_stage } and makes #{ pet.make_sound }")
+  puts("#{pet.get_age} years. Your #{pet.type} is #{pet.get_life_stage} and makes #{pet.make_sound}")
 
 end
