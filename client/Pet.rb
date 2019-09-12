@@ -7,7 +7,7 @@ class Pet
   attr_accessor :profilePhoto
   attr_accessor :photos
   attr_accessor :vaccines
-  attr_accessor :type 
+  attr_accessor :type
 
   @type = :dog
 
