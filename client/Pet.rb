@@ -4,16 +4,21 @@ class Pet
   attr_accessor :name
   attr_accessor :birthDate
   attr_accessor :weight
-  attr_reader :type = [dog: = "Dog",cat: "Cat" ,bird: "Bird",rodent: "Rodent", other: "other"]
   attr_accessor :profilePhoto
-  attr_accessor :vaccines
   attr_accessor :photos
+  attr_accessor :vaccines
+  attr_accessor :type 
 
-  def initialize(name, birthDate, weight, type)
+  @type = :dog
+
+  def initialize(name, birthDate, weight, type, profilePhoto, photos, vaccines)
     @name = name
     @birthDate = birthDate
     @weight = weight
     @type = type
+    @profilePhoto = profilePhoto
+    @photos = photos
+    @vaccines = vaccines 
   end
 
   def setType(type)
@@ -22,14 +27,15 @@ class Pet
 
   def makeSound
     case @type
-    when :dog
+    when "dog"
       return "au au"
-    when :cat
+    when "cat"
       return "miau"
-    when :bird
+    when "bird"
       return "piu piu"
     else
       return "???"
+    end
   end
 
   def getAge
@@ -44,5 +50,12 @@ class Pet
     end
     return "old"
   end
+end
+
+class Test
+
+  pet = Pet.new("Nome", 2000/3/4, 5, "dog", "petphoto.png", "photos", "vaccines")
+  
+  puts(pet.makeSound())
 
 end

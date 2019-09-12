@@ -9,6 +9,4 @@ class Photo
       @description = description
     end
 
-    
-  end
 end
