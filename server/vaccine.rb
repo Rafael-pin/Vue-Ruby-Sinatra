@@ -11,16 +11,16 @@ class Vaccine
     @duration = duration
   end
 
-  def calculateExpiredDate
+  def calculate_expired_date
     return @date + @duration
   end
 
-  def calculateRemaningTime
+  def calculate_remaning_time
     if (@date + @duration <= Date.today)
-      return "This vaccine has expired in #{ calculateExpiredDate() }" 
+      return "This vaccine has expired in #{ calculate_expired_date() }" 
     end
-    return "this vaccine will expire in #{ calculateExpiredDate() }, 
-            you have #{ calculateExpiredDate().to_i } to vaccine your pet again"
+    return "this vaccine will expire in #{ calculate_expired_date() }, 
+            you have #{ calculate_expired_date().to_i } to vaccine your pet again"
   end
 
 end

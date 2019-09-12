@@ -23,11 +23,7 @@ class Pet
     @vaccines = vaccines 
   end
 
-  def setType(type)
-    @type = :type
-  end
-
-  def makeSound
+  def make_sound
     case @type
     when "dog"
       return "au au"
@@ -40,11 +36,11 @@ class Pet
     end
   end
 
-  def getAge
+  def get_age
     return (Date.today - @birthDate).to_i / 365 
   end
 
-  def getLifeStage
+  def get_life_stage
     if (getAge() < 2)
       return "puppy"
     elsif (getAge() < 8)
@@ -55,6 +51,6 @@ class Pet
 
   pet = Pet.new("Nome", Date.new(2017,9,12), 5, "dog", "petphoto.png", "photos", "vaccines")
   
-  puts(" #{ pet.getAge() } years. Your #{ pet.type } is #{ pet.getLifeStage() } and makes #{ pet.makeSound() }")
+  puts(" #{ pet.get_age() } years. Your #{ pet.type } is #{ pet.get_life_stage() } and makes #{ pet.make_sound() }")
 
 end
