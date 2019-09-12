@@ -1,24 +1,20 @@
 class Pet
 
-  require 'date'
-  
-  attr_accessor :idPet
+  attr_accessor :id_pet
   attr_accessor :name
-  attr_accessor :birthDate
+  attr_accessor :birth_date
   attr_accessor :weight
-  attr_accessor :profilePhoto
+  attr_accessor :profile_photo
   attr_accessor :photos
   attr_accessor :vaccines
   attr_accessor :type
 
-  @type = :dog
-
-  def initialize(name, birthDate, weight, type, profilePhoto, photos, vaccines)
+  def initialize(name, birth_date, weight, type, profile_photo, photos, vaccines)
     @name = name
-    @birthDate = birthDate
+    @birth_date = birth_date
     @weight = weight
     @type = type
-    @profilePhoto = profilePhoto
+    @profile_photo = profile_hoto
     @photos = photos
     @vaccines = vaccines 
   end
@@ -37,20 +33,26 @@ class Pet
   end
 
   def get_age
-    return (Date.today - @birthDate).to_i / 365 
+    return (Time.now.utc.to_date - @birth_date).years + made_birth_day
   end
 
   def get_life_stage
-    if (getAge() < 2)
+    if (get_age < 2)
       return "puppy"
-    elsif (getAge() < 8)
+    elsif (get_age < 8)
       return "adult"
     end
     return "old"
   end
 
-  pet = Pet.new("Nome", Date.new(2017,9,12), 5, "dog", "petphoto.png", "photos", "vaccines")
+  def made_birth_day
+    time = Time.now.utc.to_date
+    if @birth_date.month >= time.month
+      return @birth_date.day >= time.day ? 1 : 0
+    end
+  end
+  pet = Pet.new("Nome", Time.new(2010, 9, 12).to_date, 5, "dog", "petphoto.png", "photos", "vaccines")
   
-  puts(" #{ pet.get_age() } years. Your #{ pet.type } is #{ pet.get_life_stage() } and makes #{ pet.make_sound() }")
+  puts(" #{ pet.get_age } years. Your #{ pet.type } is #{ pet.get_life_stage } and makes #{ pet.make_sound }")
 
 end
