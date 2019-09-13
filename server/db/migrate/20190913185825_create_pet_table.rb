@@ -5,6 +5,7 @@ end
 class CreatePerTable < ActiveRecord::Migration[5.0]
   def change
     create_table :pet do |t|
+      t.int :id_pet
       t.string :name
       t.time :birth_date
       t.double :weight
@@ -15,4 +16,3 @@ class CreatePerTable < ActiveRecord::Migration[5.0]
     end
   end
 end
-id_pet, :name, :birth_date, :weight, :profile_photo, :type, :photos, :vaccines
