@@ -4,3 +4,7 @@ require './models'
 
 set :database, "sqlite3:pet-profile.sqlite3"
 
+get '/' do
+  @users = User.all
+  erb :index
+end
