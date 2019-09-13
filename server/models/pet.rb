@@ -38,8 +38,4 @@ class Pet
     @birth_date.month >= time.month && @birth_date.day >= time.day
   end
 
-  pet = Pet.new("Nome", Time.new(2010, 9, 12), 5, "cat", "petphoto.png", "photos", "vaccines")
-  
-  puts("#{pet.get_age} years. Your #{pet.type} is #{pet.get_life_stage} and makes #{pet.make_sound}")
-
 end
