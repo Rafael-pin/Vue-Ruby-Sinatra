@@ -22,9 +22,4 @@ class Vaccine
     
   end
 
-  vaccine = Vaccine.new(1,"raiva",Time.new(2019, 9, 12),10)
-
-  puts vaccine.name
-  puts vaccine.show_results
-
 end
