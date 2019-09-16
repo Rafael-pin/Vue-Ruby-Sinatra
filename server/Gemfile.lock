@@ -12,6 +12,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
+    byebug (11.0.1)
     concurrent-ruby (1.1.5)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
@@ -44,6 +45,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  byebug
   puma
   rake
   sinatra-activerecord
