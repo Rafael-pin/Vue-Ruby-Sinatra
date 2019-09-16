@@ -1,16 +1,20 @@
-class Pet
+class Pet < ActiveRecord::Base
+  has_many :photos
+  has_many :vaccines
 
-  attr_accessor :id_pet, :name, :birth_date, :weight, :profile_photo, :type, :photos, :vaccines
+  #This is automatically created by activeRecord
 
-  def initialize(name, birth_date, weight, type, profile_photo, photos, vaccines)
-    @name = name
-    @birth_date = birth_date
-    @weight = weight
-    @type = type
-    @profile_photo = profile_photo
-    @photos = photos
-    @vaccines = vaccines 
-  end
+
+  # attr_accessor :id_pet, :name, :birth_date, :weight, :profile_photo, :kind
+
+  # def initialize(id_pet, name, birth_date, weight, profile_photo, kind)
+  #   @id_pet = id_pet
+  #   @name = name
+  #   @birth_date = birth_date
+  #   @weight = weight
+  #   @profile_photo = profile_photo
+  #   @kind = kind
+  # end
 
   def make_sound
     sounds = {
@@ -19,7 +23,7 @@ class Pet
       :bird => "piu",
       :other => "???"
     }
-    sounds[@type]
+    sounds[@kind]
   end
 
   def age

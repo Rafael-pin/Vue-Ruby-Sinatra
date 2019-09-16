@@ -1,12 +1,4 @@
-class Vaccine
-  attr_accessor :idVaccine, :name, :date, :duration
-
-  def initialize(id_vaccine, name, date, duration)
-    @id_vaccine = idVaccine
-    @name = name
-    @date = date
-    @duration = duration
-  end
+class Vaccine < ActiveRecord::Base
 
   def calculate_duration_date
     @date + @duration * 86400
