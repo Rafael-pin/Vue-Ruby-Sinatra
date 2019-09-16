@@ -1,10 +1,12 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-require './models'
+require './models/pet'
+require './models/photo'
+require './models/vaccine'
 
-set :database, "sqlite3:pet-profile.sqlite3"
+class ConferenceApp < Sinatra::Base
 
-get '/' do
-  @users = User.all
-  erb :index
+  get '/' do
+    'It Works!'
+  end
 end
