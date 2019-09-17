@@ -9,4 +9,3 @@ Gemfile.lock
 .byebug_history
 *.sqlite3
 *.yml
-Gemfile
