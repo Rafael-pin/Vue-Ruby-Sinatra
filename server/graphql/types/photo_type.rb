@@ -1,7 +1,7 @@
 require 'graphql'
 require_relative 'base_object'
 
-class PhotoTypes::Photo < Types::BaseObject
+class Types::PhotoType < Types::BaseObject
   description 'Resembles a photo Object Type'
 
   field :id, ID, null: false

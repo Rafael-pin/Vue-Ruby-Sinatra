@@ -1,7 +1,7 @@
 require 'graphql'
 require_relative 'base_object'
 
-class VaccineTypes::Vaccine < Types::BaseObject
+class Types::VaccineType < Types::BaseObject
   description 'Resembles a vaccine Object Type'
 
   field :id, ID, null: false
