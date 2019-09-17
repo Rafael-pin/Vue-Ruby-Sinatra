@@ -1,0 +1,11 @@
+.DS_STORE
+*.swp
+*.rbc
+*.sass-cache
+/pkg
+/Gemfile.lock
+/coverage
+.yardoc
+.byebug_history
+*.sqlite3
+*.yml
