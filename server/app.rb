@@ -1,17 +1,18 @@
+require 'pry'
 require 'sinatra'
 require 'sinatra/activerecord'
-require './models/pet'
-require './models/photo'
-require './models/vaccine'
 require 'sinatra/json'
 require 'rack/contrib'
-require_relative 'models/pet'
-require_relative 'models/photo'
-require_relative 'models/vaccine'
+require 'byebug'
+
+require_relative './models/pet'
+# require_relative './models/photo'
+# require_relative './models/vaccine'
+require_relative './graphql/schema'
 
 class ConferenceApp < Sinatra::Base
-
-  set :database, "sqlite3:project-name.sqlite3"
+  set :database_file, 'config/database.yml'
+  use Rack::PostBodyContentTypeParser 
 
   get '/' do
     'It Works!'
@@ -22,7 +23,10 @@ class ConferenceApp < Sinatra::Base
     json message
   end
 
-  use Rack::PostBodyContentTypeParser
+  get '/pets' do
+    @pets = Pet.all
+    json @pets
+  end
 
   post '/graphql' do
     result = ConferenceAppSchema.execute(
