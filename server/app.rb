@@ -6,8 +6,8 @@ require 'rack/contrib'
 require 'byebug'
 
 require_relative './models/pet'
-# require_relative './models/photo'
-# require_relative './models/vaccine'
+require_relative './models/photo'
+require_relative './models/vaccine'
 require_relative './graphql/schema'
 
 class ConferenceApp < Sinatra::Base

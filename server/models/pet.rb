@@ -1,21 +1,7 @@
 class Pet < ActiveRecord::Base
   has_many :photos
   has_many :vaccines
-
-  #This is automatically created by activeRecord
-
-
-  # attr_accessor :id_pet, :name, :birth_date, :weight, :profile_photo, :kind
-
-  # def initialize(id_pet, name, birth_date, weight, profile_photo, kind)
-  #   @id_pet = id_pet
-  #   @name = name
-  #   @birth_date = birth_date
-  #   @weight = weight
-  #   @profile_photo = profile_photo
-  #   @kind = kind
-  # end
-
+  
   def make_sound
     sounds = {
       :dog => "auau",
