@@ -68,6 +68,7 @@ DEPENDENCIES
   puma
   rack-contrib
   rake
+  sinatra
   sinatra-activerecord
   sinatra-contrib
   sqlite3
