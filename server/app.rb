@@ -4,10 +4,8 @@ require 'sinatra/activerecord'
 require 'sinatra/json'
 require 'rack/contrib'
 require 'byebug'
-
-require_relative './models/pet'
-require_relative './models/photo'
-require_relative './models/vaccine'
+require 'require_all'
+require_all './models'
 require_relative './graphql/schema'
 
 class ConferenceApp < Sinatra::Base
