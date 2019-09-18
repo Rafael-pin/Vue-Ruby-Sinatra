@@ -5,8 +5,8 @@ require 'sinatra/json'
 require 'rack/contrib'
 require 'byebug'
 require 'require_all'
-require_all './models'
 require_relative './graphql/schema'
+require_all './models'
 
 class ConferenceApp < Sinatra::Base
   set :database_file, 'config/database.yml'
