@@ -1,4 +1,5 @@
 class Vaccine < ActiveRecord::Base
+  belongs_to :pet
 
   def calculate_duration_date
     @date + @duration * 86400
