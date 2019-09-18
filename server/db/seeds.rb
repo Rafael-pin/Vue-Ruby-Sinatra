@@ -4,6 +4,9 @@ vaccines = {name: "raiva", date: "2018-09-16", duration: 360}
 
 photos = {photo: "https//exemplo", description: "cat"}
 
-Pet.create(pets)
-Vaccine.create(vaccines)
-Photo.create(photos)
+pet = Pet.create(pets)
+vaccine = Vaccine.create(vaccines)
+photo = Photo.create(photos)
+
+pet.vaccines.push(vaccine)
+pet.photos.push(photo)
