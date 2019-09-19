@@ -1,5 +1,4 @@
 require 'graphql'
-require 'require_all'
 require_relative './vaccine_type'
 require_relative './photo_type'
 require_relative './base_object'
