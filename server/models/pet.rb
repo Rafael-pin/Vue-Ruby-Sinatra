@@ -18,8 +18,8 @@ class Pet < ActiveRecord::Base
   end
 
   def life_stage
-    return "puppy" if (get_age < 2)
-    return "adult" if (get_age < 8)
+    return "puppy" if (age < 2)
+    return "adult" if (age < 8)
     "old"
   end
 
