@@ -9,11 +9,11 @@ class Pet < ActiveRecord::Base
       :bird => "piu",
       :other => "???"
     }
-    sounds[@kind]
+    sounds[kind.to_sym]
   end
 
   def age
-    age = Time.now.utc.year - @birth_date.year
+    age = Time.now.utc.year - birth_date.year    
     made_birthday_this_year? ? age : age - 1
   end
 
@@ -25,7 +25,7 @@ class Pet < ActiveRecord::Base
 
   def made_birthday_this_year?
     time = Time.now.utc
-    @birth_date.month >= time.month && @birth_date.day >= time.day
+    birth_date.month >= time.month && birth_date.day >= time.day
   end
 
 end
