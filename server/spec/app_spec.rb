@@ -77,12 +77,12 @@ describe "Vaccine.show_results" do
     Timecop.return
   end
 
-  it "expect to return expire date and days to vaccine" do
+  it "expect to return expire date 23/10/2019 and days (30) to vaccine" do
     vaccine = Vaccine.new(date: "2019-09-23", duration: "30")
     expect(vaccine.show_results).to eq("this vaccine will expire in 23/10/2019 /\n    you have 30 day(s) to vaccine your pet again")
   end
 
-  it "expect to return expire date and days to vaccine" do
+  it "expect to return expire (10/09/2019) date" do
     vaccine = Vaccine.new(date: "2019-09-01", duration: "9")
     expect(vaccine.show_results).to eq("This vaccine has expired in 10/09/2019")
   end
