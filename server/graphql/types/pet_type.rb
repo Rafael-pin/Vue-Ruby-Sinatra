@@ -11,6 +11,7 @@ class Types::PetType < Types::BaseObject
   field :birth_date, String, null: true
   field :weight, Float, null: true
   field :profile_photo, String, null: true
+  field :kind, String, null: false
   field :photos, [Types::PhotoType], null: true
   field :vaccines, [Types::VaccineType], null: true
 

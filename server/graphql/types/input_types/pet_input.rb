@@ -1,7 +1,7 @@
 require 'graphql'
 require 'require_all'
-require_relative '../vaccine_type'
-require_relative '../photo_type'
+require_relative './vaccine_input'
+require_relative './photo_input'
 require_relative './base_input'
 
 class Types::PetInput < Types::BaseInputObject 

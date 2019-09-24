@@ -24,7 +24,7 @@ class ConferenceApp < Sinatra::Base
     result = ConferenceAppSchema.execute(
       params[:query],
       variables: params[:variables],
-      context: { current_user: nil },
+      context: { current_user: nil }
     )
     json result
   end
