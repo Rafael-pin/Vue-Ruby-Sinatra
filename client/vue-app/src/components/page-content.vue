@@ -1,8 +1,8 @@
 <template>
   <main id="page-content">
     <section>
-    <div><img src="" alt=""></div>
-    <h2>Nome do pet</h2>
+      <h2>Nome do pet</h2>
+      <img src="https://abrilsuperinteressante.files.wordpress.com/2018/05/filhotes-de-cachorro-alcanc3a7am-o-c3a1pice-de-fofura-com-8-semanas1.png" alt="">
     </section>
     <section id="information">
       <span><strong>Name: </strong> blá</span>
@@ -22,9 +22,8 @@
 <style scoped>
 
   main{
-    width: 100%;
-    height: 30vw;
     display: flex;
+    flex-direction: line;
     margin-top: 4rem;
     margin: 5%;
   }
@@ -34,17 +33,18 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   #information{
     display: flex;
-    align-items: flex-start;
-    line-height: 3;
+    padding-top: 20%;
+    justify-content: center;
+    align-items: center;
+    line-height: 2;
   }
 
-  div{
-    width: 80%;
-    height: 90%;
+  img{
+    width: 100%;
+    height: 100%;
   }
   </style> 

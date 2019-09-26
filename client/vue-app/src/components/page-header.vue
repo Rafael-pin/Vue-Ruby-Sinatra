@@ -1,22 +1,22 @@
 <template>
   <header id="page-header">
     <section id="title"><h1>Pet-Profile</h1></section>
-    <a>New pet</a>
-    <a>Edit pet</a>
-    <a>Delete pet</a>
-    <section id="search">
-      <form>
-        <input type="text" id="query" placeholder="Search:">
-        <select id="choose">
-          <option value="none" selected>Filter</option>
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="bird">Bird</option>
-          <option value="other">Other</option>
-        </select>
-         <input type="submit" value="Submit">
-      </form>
-    </section>
+    <div class="icon-bar">
+      <a class="active" href="#"><i class="fa fa-plus"></i></a>
+      <a href="#"><i class="fa fa-trash"></i></a> 
+      <a class="active" href="#"><i class="fa fa-edit"></i></a>
+    </div>
+    <form>
+      <input type="text" id="query" placeholder="Search:">
+      <select id="choose">
+        <option value="none" selected>Filter</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="bird">Bird</option>
+        <option value="other">Other</option>
+      </select>
+        <i class="fa fa-search" type="submit" value="Submit"/>
+    </form>
   </header>
 </template>
 
@@ -29,12 +29,11 @@
 <style scoped>
 
   #page-header{
-    width:100%;
-    height:7vw;
-    background-color: rgb(86, 153, 18);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     align-items: center;
+    background-color: rgb(217, 231, 243);
   }
 
   a:hover{
@@ -59,6 +58,12 @@
   #query{
     background-color: white;
     height: 45%;
+    width: 55%;
   }
-    
+
+  div{
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+  }
 </style>

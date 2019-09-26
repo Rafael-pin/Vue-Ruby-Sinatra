@@ -1,13 +1,14 @@
 <template>
-  <footer id="vaccine-grid">
+  <section id="vaccine-grid">
     <h3>Vaccines</h3>
     <div id="grid-container">
       <h4>Name</h4>
       <h4>Expires in</h4>
       <div class="grid-item">name</div>
       <div class="grid-item">date</div>
+      <!-- make a v-for to loop trough vaccines and add a new grid item per vaccine -->
     </div>
-  </footer>  
+  </section>  
 </template>
 
 <script>
@@ -17,7 +18,7 @@
 </script>
 
 <style scoped>
-  footer{
+  section{
     display: flex;
     flex-direction: column;
     margin: 5%;
@@ -25,11 +26,11 @@
 
   div{
     display: flex;
-    justify-content: space-around;
   }
 
   #grid-container {
     display: grid;
+    width: 100%;
     grid-template-columns: auto auto;
   }
 
