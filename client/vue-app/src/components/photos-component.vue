@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: 'VaccineGrid'
+    name: 'photos'
   }
 </script>
 
