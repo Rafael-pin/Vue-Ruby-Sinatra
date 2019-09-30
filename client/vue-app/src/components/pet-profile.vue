@@ -1,27 +1,30 @@
 <template>
-  <main>
+  <div id="pet-profile">
     <page-header/>
     <page-content/>
     <vaccine-grid/>
-  </main>
+  </div>
 </template>
 
 <script>
 
-import PageHeader from './components/page-header.vue'
-import PageContent from './components/page-content.vue'
-import VaccineGrid from './components/vaccine-grid.vue'
+import gql from 'graphql-tag'
+import PageHeader from './page-header.vue'
+import PageContent from './page-content.vue'
+import VaccineGrid from './vaccine-grid.vue'
 
-  export default {
-    name: 'PetProfile',
-    components: {
+
+export default {
+  name: 'PetProfle',
+  components: {
     PageHeader,
     PageContent,
-    VaccineGrid
-    },
-  }
+    VaccineGrid,
+  },
+  data() {
+    return {
+      pets: null
+    }
+  },
+}
 </script>
-
-<style scoped>
-
-</style>
