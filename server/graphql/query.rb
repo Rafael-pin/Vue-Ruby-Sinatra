@@ -19,7 +19,6 @@ class QueryType < GraphQL::Schema::Object
   end
 
   def pets
-    byebug
     Pet.all
   end
 

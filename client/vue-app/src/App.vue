@@ -8,7 +8,6 @@
 
 <script>
 
-// import gql from 'graphql-tag'
 import PetProfile from './components/pet-profile.vue'
 
 export default {
@@ -16,12 +15,7 @@ export default {
 
   components: {
     PetProfile
-  },
-  data() {
-    return {
-      pets: null
-    }
-  },
+  }
 }
 </script>
 
