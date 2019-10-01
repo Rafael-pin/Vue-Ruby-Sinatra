@@ -8,16 +8,12 @@
 
 <script>
 
-import gql from 'graphql-tag'
+// import gql from 'graphql-tag'
 import PetProfile from './components/pet-profile.vue'
-import PageHeader from './components/page-header.vue'
-import PageContent from './components/page-content.vue'
-import VaccineGrid from './components/vaccine-grid.vue'
-
 
 export default {
   name: 'app',
-  
+
   components: {
     PetProfile
   },
