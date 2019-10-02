@@ -3,23 +3,26 @@
     <section>
       <h2></h2>
       <img
-        src="https://abrilsuperinteressante.files.wordpress.com/2018/05/filhotes-de-cachorro-alcanc3a7am-o-c3a1pice-de-fofura-com-8-semanas1.png"
+        :src = "pet.profilePhoto"
         alt
       />
     </section>
     <section id="information">
       <span>
         <strong>Name:</strong>
-        {{this.pet.name}}
+        {{pet.name}}
       </span>
       <span>
-        <strong>Age:</strong> blá
+        <strong>Age:</strong>
+        {{pet.age}}
       </span>
       <span>
-        <strong>weight:</strong> weight
+        <strong>weight:</strong>
+        {{pet.weight}} KG
       </span>
       <span>
-        <strong>kind:</strong> kind
+        <strong>kind:</strong>
+        {{pet.kind}}
       </span>
     </section>
   </main>
@@ -30,27 +33,27 @@ const axios = require('axios').default;
 
 // axios.post('http://localhost:9292/graphql',  {
 //       query: "{pets { id name vaccines {name} photos {photo}}}"
-//     // query: `
-//     //       query Pet($petId: ID!) {
-//     //       pet(id: $petId) {
-//     //         id
-//     //         name
-//     //         birt_date
-//     //         weight
-//     //         profile_photo
-//     //         kind
-//     //         vaccines {
-//     //           name
-//     //           date
-//     //           duration
-//     //         }
-//     //         photos {
-//     //           photo
-//     //           description
-//     //         }
-//     //       }
-//     //     }
-//     //   `
+    // query: `
+    //       query Pet($petId: ID!) {
+    //       pet(id: $petId) {
+    //         id
+    //         name
+    //         birt_date
+    //         weight
+    //         profile_photo
+    //         kind
+    //         vaccines {
+    //           name
+    //           date
+    //           duration
+    //         }
+    //         photos {
+    //           photo
+    //           description
+    //         }
+    //       }
+    //     }
+    //   `
 //   })
 //   .then(function (response) {
 //     // console.log({response});
@@ -64,16 +67,16 @@ export default {
   name: "PageContent",
   data () {
     return {
-      pet: {name}
+      pet: {name: "",birthDate: "", weight: 0, profilePhoto: "", kind: "", age: 0}
     }
   },
   
   methods: {
 
     setPet() {
-      axios.post('http://localhost:9292/graphql', { query: "{pets { id name vaccines {name} photos {photo}}}" })
+      axios.post('http://localhost:9292/graphql', { query: "{pets { name age birthDate weight profilePhoto kind}}" })
         .then((response) =>
-          this.pet.name = response.data.data.pets[0].name
+          console.log(this.pet = response.data.data.pets[0])
       );  
     },
   },
