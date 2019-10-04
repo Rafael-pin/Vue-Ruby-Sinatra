@@ -1,7 +1,6 @@
 require 'graphql'
 require_relative './base_mutation'
 require 'require_all'
-require 'byebug'
 require_all 'graphql/types/input_types/'
 
 class Mutations::CreatePet < Mutations::BaseMutation
