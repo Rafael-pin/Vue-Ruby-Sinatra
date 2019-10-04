@@ -25,7 +25,7 @@ class Pet < ActiveRecord::Base
 
   def made_birthday_this_year?
     time = Time.now.utc
-    birth_date.month >= time.month && birth_date.day >= time.day
+    birth_date.month <= time.month && birth_date.day <= time.day
   end
 
 end
