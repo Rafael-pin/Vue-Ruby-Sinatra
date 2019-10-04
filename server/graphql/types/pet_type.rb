@@ -8,11 +8,14 @@ class Types::PetType < Types::BaseObject
 
   field :id, ID, null: false
   field :name, String, null: false
-  field :birth_date, String, null: true
+  field :birth_date, String, null: false
+  field :age, Integer, null: true
   field :weight, Float, null: true
-  field :profile_photo, String, null: true
+  field :profile_photo, String, null: false
   field :kind, String, null: false
   field :photos, [Types::PhotoType], null: true
   field :vaccines, [Types::VaccineType], null: true
+  field :life_stage, String, null: false
+  field :make_sound, String, null: false
 
 end
