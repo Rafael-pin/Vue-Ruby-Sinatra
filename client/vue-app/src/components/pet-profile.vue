@@ -2,8 +2,10 @@
   <div id="pet-profile">
     <page-header />
     <new-pet v-if="pet == null"/>
-    <page-content v-else :pet="pet" />
-    <vaccine-grid v-if="pet != null" :pet="pet" />
+    <div v-else >
+      <page-content :pet="pet"/>
+      <vaccine-grid :pet="pet"/>
+    </div>
   </div>
 </template>
 
