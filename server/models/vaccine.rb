@@ -2,7 +2,8 @@ class Vaccine < ActiveRecord::Base
   belongs_to :pet
 
   def calculate_duration_date
-    date + duration * 86400
+    return date + duration * 86400 if duration != nil
+    date
   end
 
   def show_results
