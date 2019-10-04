@@ -2,6 +2,7 @@ require 'graphql'
 require_relative './base_mutation'
 require 'require_all'
 require_all 'graphql/types/input_types/'
+require 'byebug'
 
 class Mutations::CreatePet < Mutations::BaseMutation
   description 'Creates a pet'
@@ -9,7 +10,7 @@ class Mutations::CreatePet < Mutations::BaseMutation
   argument :pet, Types::PetInput, required: true
 
   def resolve(pet:)
-
+    byebug
     photos_collection = pet[:photos].map do |photo| 
       Photo.new(photo: photo.photo, description: photo.description)
     end
@@ -24,8 +25,6 @@ class Mutations::CreatePet < Mutations::BaseMutation
       weight: pet.weight, 
       profile_photo: pet.profile_photo, 
       kind: pet.kind,
-      photos: photos_collection,
-      vaccines: vaccines_collection
     )
 
     if pet.save

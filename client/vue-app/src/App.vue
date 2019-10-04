@@ -9,10 +9,6 @@
 <script>
 export default {
   name: 'app',
-
-  // components: {
-  //   // PetProfile
-  // }
 }
 </script>
 

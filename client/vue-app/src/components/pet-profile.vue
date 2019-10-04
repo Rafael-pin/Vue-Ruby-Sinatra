@@ -44,11 +44,9 @@ export default {
   props: {
     id: String
   },
-
   data() {
     return {
       pet: { },
-      updatePet: false
     }
   }
 };

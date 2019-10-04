@@ -2,63 +2,89 @@
   <main id="new-pet">
     <section>
       <h2></h2>
-      <img  alt />
+      <img alt />
       <strong>Photo source:</strong>
-        <b>
-          <input type="text"   />
-        </b>
+      <b>
+        <input type="text" v-model="photo" />
+      </b>
     </section>
     <section id="information">
       <span>
         <strong>Name:</strong>
         <b>
-          <input type="text"   />
+          <input type="text" v-model="name" />
         </b>
       </span>
       <span>
-        <strong>Age:</strong>
+        <strong>Birth Date:</strong>
         <b>
-          <input type="text"   />
+          <input type="date" v-model="date" />
         </b>
       </span>
       <span>
         <strong>weight:</strong>
         <b>
-          <input type="text"   />
+          <input type="number" v-model="weight" />
         </b>
       </span>
       <span>
         <strong>kind:</strong>
         <b>
-          <input type="text" />
+          <input type="text" v-model="kind" />
         </b>
       </span>
-      <span>
-        <strong>Sound:</strong>
-        <b>
-          <input type="text" name id />
-        </b>
-      </span>
-      <span>
-        <strong>Life Stage:</strong>
-        <b>
-          <input type="text" name id />
-        </b>
-      </span>
+      <button @click="addPet()">Add</button>
     </section>
   </main>
 </template>
 
-  <script>
+<script>
+const axios = require("axios").default
 export default {
   name: "NewPet",
   props: {
-    pet: Object,
+    pet: Object
+  },
+  data() {
+    return {
+      photo: '',
+      name: '',
+      date: '',
+      weight: '',
+      kind: ''
+    }
+  },
+  methods:{
+    addPet(){
+      axios
+      .post('http://localhost:9292/graphql', {
+        query: `
+          mutation createPet($name:String!, $birthDate:String, $weight:Float, $profilePhoto:String, $kind:String!) {
+            AddPet(name:$name, birthDate:$birthDate, weight:$weight, profilePhoto:$profilePhoto kind:$kind) { 
+              name
+              birthDate
+              weight
+              profilePhoto
+              kind
+            }
+          }
+        `,
+        variables: {
+          name: this.name,
+          birthDate: this.date,
+          weight: this.weight,
+          profilePhoto: this.photo,
+          kind: this.kind
+        }
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+    } 
   }
-};
+}
 </script>
 
-  <style scoped>
+<style scoped>
 main {
   display: flex;
   flex-direction: line;

@@ -1,5 +1,4 @@
-
-  <template>
+<template>
   <section class="vaccine-grid">
     <h3>Vaccines</h3>
     <div class="grid-container">
@@ -13,39 +12,26 @@
         <h5>{{vaccine.name}}</h5>
       </div>
       <div class="grid-item">
-        <h5>{{vaccine.duration}}</h5>
+        <h5>{{vaccine.duration}} days</h5>
       </div>
       <div class="grid-item">
         <h5>{{vaccine.showResults}}</h5>
       </div>
       <button class="fa fa-trash"></button>
-      <!-- make a v-for to loop trough vaccines and add a new grid item per vaccine -->
     </div>
   </section>
 </template>
 
 <script>
-const axios = require("axios").default;
 export default {
   name: "VaccineGrid",
   props: {
     pet: Object
-  },
-
-  methods: {
-    createVaccine() {
-      axios
-        .post("http://localhost:9292/graphql", {
-          query:
-            "{pets { name age birthDate weight profilePhoto kind makeSound lifeStage vaccines{ id name duration date showResults} photos{photo description}}}"
-        })
-        .then(response => (this.pet = response.data.data.pets[this.id]));
-    }
   }
 };
 </script>
 
-  <style scoped>
+<style scoped>
 section {
   display: flex;
   flex-direction: column;
