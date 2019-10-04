@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import PetProfile from '../components/pet-profile.vue'
+import NewPet from '../components/new-pet.vue'
 
 Vue.use(Router)
 
@@ -9,7 +10,8 @@ export default new Router({
     {
       path: '/pet/:id',
       name: 'PetProfile',
-      component: PetProfile 
+      component: PetProfile,
+      props: true
     }
   ]
 })
