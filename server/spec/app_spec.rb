@@ -1,7 +1,6 @@
 require_relative './spec_helper.rb'
 require 'require_all'
 require_all 'models/'
-require 'byebug'
 require 'timecop'
 
 describe "Pet.make_sound" do
@@ -21,21 +20,21 @@ describe "Pet.age" do
   before do
     time_now = Time.local(2019, 9, 23)
     Timecop.travel(time_now)
-    Timecop.freeze(Time.now)
+    Timecop.freeze(time_now)
    end
 
   after do
     Timecop.return
   end
 
-  it "expect to recive an age equals 10" do
-    pet = Pet.new(birth_date: "2009-09-23")
-    expect(pet.age).to eq(10)
+  it "expect to recive an age equals 9" do
+    pet = Pet.new(birth_date: "2010-08-21")
+    expect(pet.age).to eq(9)
   end
   
-  it "expect to recive an age equals 9" do
+  it "expect to recive an age equals 10" do
     pet = Pet.new(birth_date: "2009-09-22")
-    expect(pet.age).to eq(9)
+    expect(pet.age).to eq(10)
   end
 
 end
@@ -121,13 +120,16 @@ describe "Expect to return a boolean" do
     Timecop.return
   end
 
+
+  it "expect to return false" do
+    pet = Pet.new(birth_date: "2010-9-28")
+    expect(pet.made_birthday_this_year?).to eq(false)
+  end
+
   it "expect to return true" do
-    pet = Pet.new(birth_date: "2018-09-23")
+    pet = Pet.new(birth_date: "2010-9-23")
     expect(pet.made_birthday_this_year?).to eq(true)
   end
 
-  it "expect to return false" do
-    pet = Pet.new(birth_date: "2018-09-22")
-    expect(pet.made_birthday_this_year?).to eq(false)
-  end
+  
 end
