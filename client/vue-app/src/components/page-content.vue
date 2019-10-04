@@ -2,92 +2,47 @@
   <main id="page-content">
     <section>
       <h2></h2>
-      <img
-        :src = "pet.profilePhoto"
-        alt
-      />
+      <img :src="pet.profilePhoto" alt />
     </section>
     <section id="information">
       <span>
         <strong>Name:</strong>
-        {{pet.name}}
+        <b>{{pet.name}}</b>
       </span>
       <span>
         <strong>Age:</strong>
-        {{pet.age}}
+        <b>{{pet.age}}</b>
       </span>
       <span>
         <strong>weight:</strong>
-        {{pet.weight}} KG
+        <b>{{pet.weight}}</b>
       </span>
       <span>
         <strong>kind:</strong>
-        {{pet.kind}}
+        <b>{{pet.kind}}</b>
+      </span>
+      <span>
+        <strong>Sound:</strong>
+        <b>{{pet.makeSound}}</b>
+      </span>
+      <span>
+        <strong>Life Stage:</strong>
+        <b>{{pet.lifeStage}}</b>
       </span>
     </section>
   </main>
 </template>
 
-<script>
-const axios = require('axios').default;
-
-// axios.post('http://localhost:9292/graphql',  {
-//       query: "{pets { id name vaccines {name} photos {photo}}}"
-    // query: `
-    //       query Pet($petId: ID!) {
-    //       pet(id: $petId) {
-    //         id
-    //         name
-    //         birt_date
-    //         weight
-    //         profile_photo
-    //         kind
-    //         vaccines {
-    //           name
-    //           date
-    //           duration
-    //         }
-    //         photos {
-    //           photo
-    //           description
-    //         }
-    //       }
-    //     }
-    //   `
-//   })
-//   .then(function (response) {
-//     // console.log({response});
-//   })
-//   .catch(function (error) {
-//     console.log({error});
-//   });
-
-
+  <script>
 export default {
   name: "PageContent",
-  data () {
-    return {
-      pet: {name: "",birthDate: "", weight: 0, profilePhoto: "", kind: "", age: 0}
-    }
+  props: {
+    pet: Object,
   },
-  
-  methods: {
-
-    setPet() {
-      axios.post('http://localhost:9292/graphql', { query: "{pets { name age birthDate weight profilePhoto kind}}" })
-        .then((response) =>
-          console.log(this.pet = response.data.data.pets[0])
-      );  
-    },
-  },
-
-  created() {
-    this.setPet();
-  },
-}
+};
 </script>
 
-<style scoped>
+  <style scoped>
 main {
   display: flex;
   flex-direction: line;
@@ -104,7 +59,6 @@ section {
 
 #information {
   display: flex;
-  padding-top: 20%;
   justify-content: center;
   align-items: center;
   line-height: 2;
